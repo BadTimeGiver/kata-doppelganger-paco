@@ -10,12 +10,7 @@ public class SafeCalculatorTest {
     // TODO: write a test to demonstrate the bug in SafeCalculator.add()
 
     //Given
-    Authorizer authorizer = new Authorizer() {
-      @Override
-      public boolean authorize() {
-        return true;
-      }
-    };
+    Authorizer authorizer = () -> true;
     SafeCalculator safeCalculator = new SafeCalculator(authorizer);
 
     //When
@@ -26,7 +21,7 @@ public class SafeCalculatorTest {
     //Then
 
     //assert sum == 2;
-    assertEquals(sum, 2);
+    assertEquals(2, sum);
 
 
   }
